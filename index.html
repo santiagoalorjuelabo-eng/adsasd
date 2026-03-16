@@ -3,239 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreativoZ Publicidad | Agencia de Marketing & Estrategia</title>
+    <title>CreativoZ Publicidad | Agencia de Marketing Digital y Publicidad</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lime: {
+                            50: '#f7fee7',
+                            100: '#ecfccb',
+                            200: '#d9f99d',
+                            300: '#bef264',
+                            400: '#a3e635',
+                            500: '#84cc16',
+                            600: '#65a30d',
+                            700: '#4d7c0f',
+                            800: '#3f6212',
+                            900: '#365314',
+                        },
+                        brand: {
+                            light: '#a3e635',
+                            DEFAULT: '#84cc16',
+                            dark: '#4d7c0f',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'scale-in': 'scaleIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
-        
-        :root {
-            --lime: #a3e635;
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
-        
-        .tail-container {
-            font-family: 'Poppins', sans-serif;
+        .gradient-lime {
+            background: linear-gradient(135deg, #84cc16 0%, #4d7c0f 100%);
         }
-        
-        .hero-bg {
-            background: linear-gradient(135deg, #a3e635 0%, #4ade80 100%);
-            position: relative;
-            overflow: hidden;
+        .gradient-lime-light {
+            background: linear-gradient(135deg, #a3e635 0%, #84cc16 100%);
         }
-        
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
-            opacity: 0.15;
-            z-index: 0;
+        .text-gradient {
+            background: linear-gradient(135deg, #4d7c0f 0%, #84cc16 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        .nav-link {
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 10px 30px -5px rgba(37, 211, 102, 0.4);
             transition: all 0.3s ease;
         }
-        
-        .nav-link:hover {
-            color: #a3e635;
-            transform: translateY(-2px);
+        .whatsapp-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px -5px rgba(37, 211, 102, 0.6);
         }
-        
-        .whatsapp-btn {
-            animation: pulse 2s infinite;
-            box-shadow: 0 10px 30px rgba(163, 230, 53, 0.5);
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
         .service-card {
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
         .service-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 25px 50px -12px rgb(163 230 53);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(132, 204, 22, 0.25);
         }
-        
-        .logo-z {
-            font-family: 'Playfair Display', serif;
-            color: #a3e635;
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .urgency-badge {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .floating-whatsapp {
+            animation: float 6s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="tail-container bg-gray-50 text-gray-800 overflow-x-hidden">
-    
-    <!-- HEADER -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <!-- Logo -->
-            <div class="flex items-center gap-3">
-                <div class="w-14 h-14 bg-lime-400 rounded-2xl flex items-center justify-center shadow-inner">
-                    <span class="logo-z text-4xl font-bold text-white drop-shadow-lg">Z</span>
-                </div>
-                <div>
-                    <h1 class="text-3xl font-bold tracking-tighter">
-                        <span class="text-gray-800">Creativo</span><span class="logo-z">Z</span>
-                    </h1>
-                    <p class="text-[10px] text-lime-600 -mt-1 tracking-[3px] font-medium">PUBLICIDAD</p>
-                </div>
-            </div>
-            
-            <!-- Navegación -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
-                <a href="#inicio" class="nav-link text-gray-700">Inicio</a>
-                <a href="#nosotros" class="nav-link text-gray-700">Nosotros</a>
-                <a href="#servicios" class="nav-link text-gray-700">Servicios</a>
-                <a href="#contacto" class="nav-link text-gray-700">Contacto</a>
-            </nav>
-            
-            <!-- Botón WhatsApp Header -->
-            <a href="https://wa.me/573116715931?text=¡Hola!%20Quiero%20lanzar%20mi%20campaña%20AL%20INSTANTE%20con%20CreativoZ%20Publicidad" 
-               target="_blank"
-               class="whatsapp-btn flex items-center gap-3 bg-lime-500 hover:bg-lime-600 text-white font-bold text-sm px-6 py-3 rounded-3xl transition-all">
-                <i class="fab fa-whatsapp text-2xl"></i>
-                <div>
-                    <span class="block text-xs tracking-widest">¡YA!</span>
-                    <span class="text-base">Escribe WhatsApp</span>
-                </div>
-            </a>
-            
-            <!-- Menú móvil -->
-            <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-lime-600">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        
-        <!-- Menú móvil -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-xl py-4">
-            <div class="flex flex-col text-center gap-4 text-lg font-medium">
-                <a href="#inicio" onclick="toggleMobileMenu()" class="py-2 hover:text-lime-600">Inicio</a>
-                <a href="#nosotros" onclick="toggleMobileMenu()" class="py-2 hover:text-lime-600">Nosotros</a>
-                <a href="#servicios" onclick="toggleMobileMenu()" class="py-2 hover:text-lime-600">Servicios</a>
-                <a href="#contacto" onclick="toggleMobileMenu()" class="py-2 hover:text-lime-600">Contacto</a>
-            </div>
-        </div>
-    </header>
+<body class="font-sans text-gray-700 bg-gray-50 overflow-x-hidden">
 
-    <!-- HERO -->
-    <section id="inicio" class="hero-bg text-white min-h-screen flex items-center relative">
-        <div class="max-w-5xl mx-auto px-6 relative z-10">
-            <div class="max-w-2xl">
-                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-2 rounded-full text-sm font-medium mb-6">
-                    <i class="fas fa-fire text-yellow-300"></i>
-                    <span>¡Tu campaña lista en horas!</span>
-                </div>
-                
-                <h2 class="text-6xl md:text-7xl font-bold leading-none tracking-tighter mb-6">
-                    UNA IDEA ES<br>CREAR UN SUEÑO<br>Y PODER<br><span class="logo-z">PLASMARLO</span>
-                </h2>
-                
-                <p class="text-2xl mb-10 text-white/90">
-                    CreativoZ Publicidad &amp; Estrategia.<br>
-                    Tu agencia de confianza en Bogotá.
-                </p>
-                
-                <!-- Botón WhatsApp URGENTE -->
-                <div class="flex flex-col sm:flex-row gap-6">
-                    <a href="https://wa.me/573116715931?text=¡Hola!%20Quiero%20lanzar%20mi%20campaña%20AL%20INSTANTE.%20Necesito%20resultados%20YA%20%E2%9C%85" 
-                       target="_blank"
-                       class="whatsapp-btn group flex-1 bg-white text-lime-700 hover:bg-lime-100 font-bold text-2xl px-12 py-8 rounded-3xl flex items-center justify-center gap-5 shadow-2xl transition-all">
-                        <i class="fab fa-whatsapp text-5xl group-active:scale-110 transition"></i>
-                        <div class="text-left">
-                            <span class="block text-xs tracking-[4px] text-lime-600 font-medium">URGENTE</span>
-                            <span class="block text-3xl">¡Lanza tu campaña</span>
-                            <span class="block text-3xl -mt-2">AL INSTANTE!</span>
-                        </div>
-                    </a>
-                    
-                    <a href="#contacto" 
-                       class="flex-1 border-4 border-white hover:bg-white hover:text-lime-700 font-bold text-2xl px-12 py-8 rounded-3xl flex items-center justify-center gap-4 transition-all">
-                        <i class="fas fa-calendar-alt text-4xl"></i>
-                        <div>
-                            <span class="block text-xl">Agenda tu reunión</span>
-                            <span class="text-sm opacity-75">en menos de 5 minutos</span>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="mt-12 flex items-center gap-8 text-sm">
-                    <div class="flex -space-x-4">
-                        <div class="w-9 h-9 bg-white rounded-2xl flex items-center justify-center text-lime-600 shadow">G</div>
-                        <div class="w-9 h-9 bg-white rounded-2xl flex items-center justify-center text-lime-600 shadow">L</div>
+    <!-- Urgency Top Bar -->
+    <div class="bg-gradient-to-r from-lime-600 to-lime-500 text-white py-2 px-4 text-center text-sm font-semibold relative overflow-hidden">
+        <div class="absolute inset-0 bg-white opacity-10 animate-pulse"></div>
+        <span class="relative z-10 flex items-center justify-center gap-2">
+            <i class="fas fa-fire text-yellow-300 animate-bounce"></i>
+            ¡PROMOCIÓN ESPECIAL! 20% de descuento en tu primera campaña digital
+            <i class="fas fa-fire text-yellow-300 animate-bounce"></i>
+        </span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-effect fixed w-full z-50 border-b border-lime-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 gradient-lime rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                        Z
                     </div>
-                    <p class="text-xs max-w-[180px]">Certificados Google &amp; LinkedIn • Más de 200 campañas exitosas</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Elementos flotantes -->
-        <div class="absolute bottom-10 right-10 hidden lg:block">
-            <div class="bg-white text-lime-700 rounded-3xl p-6 shadow-2xl max-w-xs">
-                <div class="flex items-center gap-4">
-                    <img src="https://picsum.photos/id/1011/80/80" class="w-16 h-16 rounded-2xl" alt="">
                     <div>
-                        <p class="font-bold">Oscar David Zapata Castañeda</p>
-                        <p class="text-xs text-gray-500">Consultor de Marca</p>
-                        <a href="https://wa.me/573116715931" target="_blank" class="text-lime-600 text-sm flex items-center gap-1 mt-3">
-                            <i class="fab fa-whatsapp"></i> Hablar con Oscar ahora
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent"></div>
-    </section>
-
-    <!-- NOSOTROS / MISIÓN -->
-    <section id="nosotros" class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="px-5 py-2 bg-lime-100 text-lime-700 text-xs font-bold rounded-3xl">CREATIVOZ PUBLICIDAD &amp; ESTRATEGIA</span>
-                    <h2 class="text-5xl font-bold mt-6 leading-tight">
-                        Somos la agencia que transforma ideas en resultados reales
-                    </h2>
-                    <div class="mt-10 text-gray-600 text-lg leading-relaxed">
-                        <p class="mb-6">
-                            Una de las agencias de publicidad, diseño y comunicaciones más reconocidas de Colombia. 
-                            Conformados por un equipo interdisciplinario de profesionales en publicidad, web, medios integrales, 
-                            social media y tecnología.
-                        </p>
-                        <p>
-                            Nuestro propósito: involucrar a tus consumidores y diferenciarte en el mercado mediante un plan 
-                            integral de comunicaciones que incluye estrategia, imágenes, videos, audio y mucho más.
-                        </p>
-                    </div>
-                    <div class="mt-12 flex items-center gap-6">
-                        <div class="text-center">
-                            <div class="text-5xl font-bold text-lime-500">15</div>
-                            <div class="text-xs text-gray-500 tracking-widest">AÑOS DE EXPERIENCIA</div>
-                        </div>
-                        <div class="h-12 w-px bg-gray-200"></div>
-                        <div>
-                            <i class="fas fa-quote-left text-6xl text-lime-300"></i>
-                            <p class="italic text-lg mt-4">"Una idea es crear un sueño y poder plasmarlo en la realidad"</p>
-                        </div>
+                        <h1 class="font-heading font-bold text-2xl text-gray-800">Creativo<span class="text-lime-600">Z</span></h1>
+                        <p class="text-xs text-gray-500 font-medium tracking-wider">PUBLICIDAD & ESTRATEGIA</p>
                     </div>
                 </div>
                 
-                <div class="relative">
-                    <img src="https://picsum.photos/id/1016/800/900" 
-                         class="rounded-3xl shadow-2xl" alt="Equipo CreativoZ">
-                    <div class="absolute -bottom-8 -left-8 bg-white rounded-3xl p-8 shadow-xl max-w-[260px]">
-                        <div class="flex gap-4">
-                            <div class="text-6xl text-lime-500">📍</div>
-                            <div>
-                                <p class="font-semibold text-xl">Bogotá D.C.</p>
-                                <p class="text-lime-600">Colombia</p>
-                                <a href="#" class="block mt-4 text-sm bg-lime-100 hover:bg-lime-200 px-6 py-3 rounded-2xl text-center font-medium">Conócenos en persona</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#servicios" class="text-gray-600 hover:text-lime-600 font-medium transition-colors">Servicios</a>
+                    <a href="#nosotros" class="text-gray-600 hover:text-lime-600 font-medium transition-colors">Nosotros</a>
+                    <a href="#portafolio" class="text-gray-600 hover:text-lime-600 font-medium transition-colors">Portafolio</a>
+                    <a href="#contacto" class="text-gray-600 hover:text-lime-600 font-medium transition-colors">Contacto</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/573114431948" target="_blank" class="whatsapp-btn text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 group">
+                        <i class="fab fa-whatsapp text-xl group-hover:rotate-12 transition-transform"></i>
+                        <span class="hidden sm:inline">Cotizar Ahora</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-gradient-to-br from-lime-50 via-white to-gray-100"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-lime-100/50 to-transparent"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-lime-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-slow"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-lime-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow" style="animation-delay: 1s;"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 animate-slide-up">
+                    <div class="inline-flex items-center gap-2 bg-lime-100 text-lime-800 px-4 py-2 rounded-full text-sm font-semibold">
+                        <span class="w-2 h-2 bg-lime-500 rounded-full animate-pulse"></span>
+                        Agencia de Publicidad Líder en Colombia
+                    </div>
+                    
+                    <h1 class="font-heading text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
+                        Transformamos tus <span class="text-gradient">ideas</span> en realidades impactantes
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 leading-relaxed max-w-lg">
+                        Somos una agencia integral de publicidad, diseño y comunicaciones. Creamos campañas creativas que generan reconocimiento de marca a largo plazo.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/573114431948" target="_blank" class="whatsapp-btn text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-3 group relative overflow-hidden">
+                            <span class="absolute inset-0 bg-white opacity-20 group-hover:translate-x-full transition-transform duration-500 skew-x-12 -translate-x-full"></span>
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs opacity-90">¿Necesitas resultados hoy?</div>
+                                <div>Escríbenos al WhatsApp</div>
+                            </div>
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        
+                        <button onclick="document.getElementById('agendar').scrollIntoView({behavior: 'smooth'})" class="bg-white border-2 border-lime-500 text-lime-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-lime-50 transition-all flex items-center justify-center gap-2 group">
+                            <i class="far fa-calendar-check group-hover:scale-110 transition-transform"></i>
+                            Agendar Reunión
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-6 pt-4">
+                        <div class="flex -space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-lime-200 border-2 border-white flex items-center justify-center text-lime-700 text-xs font-bold">+10</div>
+                            <div class="w-10 h-10 rounded-full bg-lime-300 border-2 border-white flex items-center justify-center text-lime-800 text-xs font-bold">+50</div>
+                            <div class="w-10 h-10 rounded-full bg-lime-400 border-2 border-white flex items-center justify-center text-white text-xs font-bold">+100</div>
+                        </div>
+                        <p class="text-sm text-gray-600"><strong>+200 clientes</strong> satisfechos confían en nosotros</p>
+                    </div>
+                </div>
+
+                <div class="relative lg:h-[600px] flex items-center justify-center">
+                    <div class="relative w-full max-w-lg animate-float">
+                        <div class="absolute inset-0 bg-gradient-to-r from-lime-400 to-lime-600 rounded-3xl transform rotate-3 opacity-20"></div>
+                        <div class="relative bg-white rounded-3xl shadow-2xl p-8 border border-lime-100">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="space-y-4">
+                                    <div class="bg-lime-50 rounded-2xl p-4 border border-lime-100">
+                                        <i class="fas fa-bullhorn text-3xl text-lime-600 mb-2"></i>
+                                        <h3 class="font-bold text-gray-800">Campañas ATL/BTL</h3>
+                                    </div>
+                                    <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+                                        <i class="fas fa-paint-brush text-3xl text-lime-600 mb-2"></i>
+                                        <h3 class="font-bold text-gray-800">Diseño Creativo</h3>
+                                    </div>
+                                </div>
+                                <div class="space-y-4 mt-8">
+                                    <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+                                        <i class="fas fa-laptop-code text-3xl text-lime-600 mb-2"></i>
+                                        <h3 class="font-bold text-gray-800">Desarrollo Web</h3>
+                                    </div>
+                                    <div class="bg-lime-50 rounded-2xl p-4 border border-lime-100">
+                                        <i class="fas fa-chart-line text-3xl text-lime-600 mb-2"></i>
+                                        <h3 class="font-bold text-gray-800">Marketing Digital</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Urgency Card -->
+                            <div class="mt-6 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl p-4 text-white relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-20 h-20 bg-white opacity-10 rounded-full -mr-10 -mt-10"></div>
+                                <div class="flex items-center gap-3">
+                                    <div class="urgency-badge bg-white text-red-500 w-12 h-12 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-bolt text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-lg">¡Respuesta Inmediata!</p>
+                                        <p class="text-sm opacity-90">Cotización en menos de 1 hora</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -244,197 +251,528 @@
         </div>
     </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" class="py-24 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-lime-600 font-bold text-sm tracking-widest">SERVICIOS PROFESIONALES</span>
-                <h2 class="text-5xl font-bold mt-3">Todo lo que tu marca necesita</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Tarjetas de servicios (tomadas directamente del folleto) -->
-                <div class="service-card bg-white rounded-3xl p-8 shadow">
-                    <i class="fas fa-palette text-4xl text-lime-500 mb-6"></i>
-                    <h3 class="font-bold text-2xl mb-3">Diseño publicitario</h3>
-                    <p class="text-gray-600">Creatividad que vende y conecta con tu audiencia.</p>
+    <!-- Stats Section -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center scroll-reveal">
+                    <div class="text-4xl font-bold text-lime-600 mb-2 font-heading">10+</div>
+                    <div class="text-gray-600">Años de Experiencia</div>
                 </div>
-                <div class="service-card bg-white rounded-3xl p-8 shadow">
-                    <i class="fas fa-bullseye text-4xl text-lime-500 mb-6"></i>
-                    <h3 class="font-bold text-2xl mb-3">Desarrollo de marca</h3>
-                    <p class="text-gray-600">Construimos identidad que perdura.</p>
+                <div class="text-center scroll-reveal" style="transition-delay: 100ms;">
+                    <div class="text-4xl font-bold text-lime-600 mb-2 font-heading">200+</div>
+                    <div class="text-gray-600">Proyectos Exitosos</div>
                 </div>
-                <div class="service-card bg-white rounded-3xl p-8 shadow">
-                    <i class="fas fa-camera text-4xl text-lime-500 mb-6"></i>
-                    <h3 class="font-bold text-2xl mb-3">Fotografía profesional</h3>
-                    <p class="text-gray-600">Imágenes que cuentan tu historia.</p>
+                <div class="text-center scroll-reveal" style="transition-delay: 200ms;">
+                    <div class="text-4xl font-bold text-lime-600 mb-2 font-heading">50+</div>
+                    <div class="text-gray-600">Marcas Creadas</div>
                 </div>
-                
-                <div class="service-card bg-white rounded-3xl p-8 shadow">
-                    <i class="fas fa-globe text-4xl text-lime-500 mb-6"></i>
-                    <h3 class="font-bold text-2xl mb-3">Desarrollo web y App</h3>
-                    <p class="text-gray-600">Sitios y aplicaciones que convierten.</p>
+                <div class="text-center scroll-reveal" style="transition-delay: 300ms;">
+                    <div class="text-4xl font-bold text-lime-600 mb-2 font-heading">98%</div>
+                    <div class="text-gray-600">Clientes Satisfechos</div>
                 </div>
-                <div class="service-card bg-white rounded-3xl p-8 shadow">
-                    <i class="fas fa-chart-line text-4xl text-lime-500 mb-6"></i>
-                    <h3 class="font-bold text-2xl mb-3">Posicionamiento SEO + Google Ads</h3>
-                    <p class="text-gray-600">Primero en Google, siempre.</p>
-                </div>
-                <div class="service-card bg-white rounded-3xl p-8 shadow">
-                    <i class="fas fa-users text-4xl text-lime-500 mb-6"></i>
-                    <h3 class="font-bold text-2xl mb-3">Social Media &amp; Community</h3>
-                    <p class="text-gray-600">Gestión completa de redes sociales.</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="https://wa.me/573116715931?text=Quiero%20cotizar%20mis%20servicios%20de%20CreativoZ" 
-                   target="_blank"
-                   class="inline-flex items-center gap-4 bg-lime-500 hover:bg-lime-600 text-white text-xl font-bold px-14 py-6 rounded-3xl">
-                    Ver todos los servicios 
-                    <span class="text-4xl">→</span>
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- CERTIFICACIONES -->
-    <section class="py-20 bg-white border-t border-b">
-        <div class="max-w-5xl mx-auto px-6">
-            <p class="text-center text-sm text-gray-400 mb-8">CERTIFICACIONES Y PARTNERS</p>
-            <div class="flex flex-wrap justify-center gap-12 text-5xl text-gray-300">
-                <i class="fab fa-google text-lime-500"></i>
-                <i class="fab fa-linkedin"></i>
-                <i class="fas fa-chart-bar"></i>
-                <span class="text-3xl font-bold text-lime-400">Meta Ads</span>
-                <span class="text-3xl font-bold text-lime-400">Canva Pro</span>
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 bg-gray-50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Nuestros <span class="text-gradient">Servicios Profesionales</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Soluciones integrales de publicidad y marketing diseñadas para hacer crecer tu marca
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg scroll-reveal group">
+                    <div class="w-16 h-16 gradient-lime-light rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-3">Diseño Publicitario</h3>
+                    <p class="text-gray-600 mb-4">Piezas gráficas impactantes que comunican el mensaje de tu marca de manera efectiva y memorable.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Afiches y volantes</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Material POP</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Packaging</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg scroll-reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 gradient-lime-light rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-trademark"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-3">Desarrollo de Marca</h3>
+                    <p class="text-gray-600 mb-4">Creación e investigación exhaustiva de marca para definir conceptos que revelen la esencia de tu empresa.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Naming</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Logo e identidad</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Manual de marca</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg scroll-reveal group" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 gradient-lime-light rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-3">Medios Impresos</h3>
+                    <p class="text-gray-600 mb-4">Impresión de alta calidad para todos tus materiales publicitarios y corporativos.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Tarjetas de presentación</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Catálogos</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Papelería corporativa</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg scroll-reveal group">
+                    <div class="w-16 h-16 gradient-lime-light rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-3">Desarrollo Web</h3>
+                    <p class="text-gray-600 mb-4">Sitios web modernos y responsivos que convierten visitantes en clientes.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Sitios corporativos</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Tiendas online</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Apps móviles</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg scroll-reveal group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 gradient-lime-light rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-3">Redes Sociales</h3>
+                    <p class="text-gray-600 mb-4">Gestión profesional de comunidades digitales y creación de contenido estratégico.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Community management</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Content creation</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Publicidad pagada</li>
+                    </ul>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg scroll-reveal group" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 gradient-lime-light rounded-2xl flex items-center justify-center text-white text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-gray-900 mb-3">SEO & Google Ads</h3>
+                    <p class="text-gray-600 mb-4">Posicionamiento en buscadores y campañas publicitarias efectivas en Google.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> SEO técnico</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Google Ads</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-lime-500"></i> Analytics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Additional Services -->
+            <div class="mt-12 grid md:grid-cols-3 gap-6">
+                <div class="bg-lime-50 rounded-xl p-6 border border-lime-100 flex items-center gap-4 scroll-reveal">
+                    <i class="fas fa-camera text-3xl text-lime-600"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Fotografía Profesional</h4>
+                        <p class="text-sm text-gray-600">Productos y corporativa</p>
+                    </div>
+                </div>
+                <div class="bg-lime-50 rounded-xl p-6 border border-lime-100 flex items-center gap-4 scroll-reveal" style="transition-delay: 100ms;">
+                    <i class="fas fa-store text-3xl text-lime-600"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Stands y Activaciones</h4>
+                        <p class="text-sm text-gray-600">Diseño y montaje</p>
+                    </div>
+                </div>
+                <div class="bg-lime-50 rounded-xl p-6 border border-lime-100 flex items-center gap-4 scroll-reveal" style="transition-delay: 200ms;">
+                    <i class="fas fa-car text-3xl text-lime-600"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Decoración Vehicular</h4>
+                        <p class="text-sm text-gray-600">Rotulación y branding</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FORMULARIO AGENDACIÓN (CAPTURA DE DATOS) -->
-    <section id="contacto" class="py-24 bg-gradient-to-br from-lime-600 to-emerald-600 text-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-5xl font-bold">Agenda tu estrategia GRATIS</h2>
-                <p class="text-xl mt-4 opacity-90">En 48 horas tendrás tu plan de campaña listo</p>
+    <!-- Industries Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-heading text-4xl font-bold text-gray-900 mb-4">
+                    Áreas de <span class="text-gradient">Trabajo</span>
+                </h2>
+                <p class="text-gray-600">Especialistas en múltiples sectores industriales</p>
             </div>
-            
-            <form id="agendaForm" onsubmit="handleSubmit(event)" class="bg-white text-gray-800 rounded-3xl p-10 shadow-2xl">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500 mb-2">Nombre completo</label>
-                        <input type="text" id="nombre" required 
-                               class="w-full border-2 border-gray-200 focus:border-lime-400 rounded-2xl px-6 py-5 text-lg">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500 mb-2">Teléfono / WhatsApp</label>
-                        <input type="tel" id="telefono" required 
-                               class="w-full border-2 border-gray-200 focus:border-lime-400 rounded-2xl px-6 py-5 text-lg">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500 mb-2">Email</label>
-                        <input type="email" id="email" required 
-                               class="w-full border-2 border-gray-200 focus:border-lime-400 rounded-2xl px-6 py-5 text-lg">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500 mb-2">Servicio que necesitas</label>
-                        <select id="servicio" required 
-                                class="w-full border-2 border-gray-200 focus:border-lime-400 rounded-2xl px-6 py-5 text-lg bg-white">
-                            <option value="">Elige una opción</option>
-                            <option value="Campaña Google Ads">Campaña Google Ads</option>
-                            <option value="Diseño Web + SEO">Diseño Web + SEO</option>
-                            <option value="Redes Sociales">Gestión de Redes Sociales</option>
-                            <option value="Desarrollo de Marca">Desarrollo de Marca</option>
-                            <option value="Fotografía y Video">Fotografía y Video</option>
-                            <option value="Otro">Otro servicio</option>
-                        </select>
-                    </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-lime-50 transition-colors cursor-pointer group scroll-reveal">
+                    <i class="fas fa-building text-3xl text-lime-600 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium text-gray-700 text-sm">Construcción</p>
                 </div>
-                
-                <div class="mt-6">
-                    <label class="block text-xs font-medium text-gray-500 mb-2">¿Cuándo quieres lanzar tu campaña?</label>
-                    <textarea id="mensaje" rows="4" placeholder="Ej: Quiero resultados antes del 30 de abril..." 
-                              class="w-full border-2 border-gray-200 focus:border-lime-400 rounded-3xl px-6 py-5 text-lg"></textarea>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-lime-50 transition-colors cursor-pointer group scroll-reveal" style="transition-delay: 50ms;">
+                    <i class="fas fa-hotel text-3xl text-lime-600 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium text-gray-700 text-sm">Hotelería</p>
                 </div>
-                
-                <button type="submit"
-                        class="mt-8 w-full bg-lime-500 hover:bg-lime-600 text-white font-bold text-2xl py-8 rounded-3xl flex items-center justify-center gap-4 transition-all">
-                    <span>RESERVAR MI REUNIÓN YA</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-                
-                <p class="text-center text-xs text-gray-400 mt-6">Tu información está 100% protegida • Respuesta en menos de 2 horas</p>
-            </form>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-lime-50 transition-colors cursor-pointer group scroll-reveal" style="transition-delay: 100ms;">
+                    <i class="fas fa-heartbeat text-3xl text-lime-600 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium text-gray-700 text-sm">Salud</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-lime-50 transition-colors cursor-pointer group scroll-reveal" style="transition-delay: 150ms;">
+                    <i class="fas fa-car-side text-3xl text-lime-600 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium text-gray-700 text-sm">Concesionarios</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-lime-50 transition-colors cursor-pointer group scroll-reveal" style="transition-delay: 200ms;">
+                    <i class="fas fa-plane text-3xl text-lime-600 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium text-gray-700 text-sm">Viajes y Turismo</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-lime-50 transition-colors cursor-pointer group scroll-reveal">
+                    <i class="fas fa-laptop text-3xl text-lime-600 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium text-gray-700 text-sm">Tecnología</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-lime-50 transition-colors cursor-pointer group scroll-reveal" style="transition-delay: 50ms;">
+                    <i class="fas fa-utensils text-3xl text-lime-600 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium text-gray-700 text-sm">Gastronomía</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-lime-50 transition-colors cursor-pointer group scroll-reveal" style="transition-delay: 100ms;">
+                    <i class="fas fa-briefcase text-3xl text-lime-600 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium text-gray-700 text-sm">Outsourcing</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-lime-50 transition-colors cursor-pointer group scroll-reveal" style="transition-delay: 150ms;">
+                    <i class="fas fa-user-md text-3xl text-lime-600 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium text-gray-700 text-sm">Medical Marketing</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:bg-lime-50 transition-colors cursor-pointer group scroll-reveal" style="transition-delay: 200ms;">
+                    <i class="fas fa-calendar-alt text-3xl text-lime-600 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <p class="font-medium text-gray-700 text-sm">Eventos BTL/ATL</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
-            <div>
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-lime-400 rounded-2xl flex items-center justify-center">
-                        <span class="logo-z text-5xl text-white">Z</span>
-                    </div>
-                    <div class="text-3xl font-bold">CreativoZ</div>
-                </div>
-                <p class="text-gray-400 mt-6 text-sm">Publicidad &amp; Estrategia • Bogotá D.C.</p>
-                <div class="mt-8 flex gap-6 text-3xl">
-                    <a href="https://wa.me/573116715931" class="hover:text-lime-400"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="hover:text-lime-400"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-lime-400"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-            
-            <div>
-                <h4 class="font-semibold mb-6 text-lime-400">CONTACTO DIRECTO</h4>
-                <div class="space-y-4 text-sm">
-                    <p>📞 311 671 5931</p>
-                    <p>📞 314 443 1948</p>
-                    <p>✉️ gerencia@creativoz.co</p>
-                    <p>🌐 www.creativoz.co</p>
-                </div>
-            </div>
-            
-            <div>
-                <h4 class="font-semibold mb-6 text-lime-400">¡ÚLTIMA OPORTUNIDAD!</h4>
-                <a href="https://wa.me/573116715931?text=¡Quiero%20mi%20diagnóstico%20GRATIS%20de%20marca%20AHORA!" 
-                   target="_blank"
-                   class="block bg-lime-400 hover:bg-white hover:text-lime-700 text-gray-900 font-bold text-center py-8 rounded-3xl text-xl transition-all">
-                    ESCRÍBENOS POR WHATSAPP<br>
-                    <span class="text-xs tracking-widest">y recibe diagnóstico gratis en 24h</span>
-                </a>
-            </div>
+    <!-- Booking Section -->
+    <section id="agendar" class="py-24 bg-gradient-to-br from-gray-900 to-gray-800 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
         </div>
         
-        <div class="text-center text-xs text-gray-500 mt-16">
-            © 2026 CreativoZ Publicidad • Todos los derechos reservados
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="text-white scroll-reveal">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6">
+                        Agenda tu <span class="text-lime-400">Reunión Estratégica</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8">
+                        Descubre cómo podemos impulsar tu marca. Agenda una consultoría gratuita con nuestros expertos.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-lime-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-lightbulb text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Diagnóstico Gratuito</h4>
+                                <p class="text-gray-400">Analizamos tu marca y mercado objetivo</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-lime-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-rocket text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Propuesta Personalizada</h4>
+                                <p class="text-gray-400">Estrategia a medida para tus objetivos</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-lime-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-chart-line text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Resultados Medibles</h4>
+                                <p class="text-gray-400">KPIs claros y reportes constantes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-2xl scroll-reveal">
+                    <form id="bookingForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Nombre completo *</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-200 outline-none transition-all" placeholder="Tu nombre">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Empresa</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-200 outline-none transition-all" placeholder="Nombre de tu empresa">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Teléfono *</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-200 outline-none transition-all" placeholder="300 123 4567">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-200 outline-none transition-all" placeholder="correo@ejemplo.com">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Servicio de interés *</label>
+                            <select required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-200 outline-none transition-all bg-white">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="branding">Desarrollo de Marca</option>
+                                <option value="digital">Marketing Digital</option>
+                                <option value="web">Desarrollo Web</option>
+                                <option value="diseno">Diseño Publicitario</option>
+                                <option value="redes">Redes Sociales</option>
+                                <option value="seo">SEO / Google Ads</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Fecha preferida *</label>
+                            <input type="date" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-200 outline-none transition-all">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Mensaje</label>
+                            <textarea rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-lime-500 focus:ring-2 focus:ring-lime-200 outline-none transition-all resize-none" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full gradient-lime text-white font-bold py-4 rounded-xl hover:shadow-lg hover:scale-[1.02] transition-all flex items-center justify-center gap-2 group">
+                            <span>Agendar Reunión Ahora</span>
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+
+                        <p class="text-xs text-gray-500 text-center">
+                            <i class="fas fa-lock mr-1"></i>
+                            Tus datos están protegidos. Nos contactaremos en menos de 24 horas.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency CTA Section -->
+    <section class="py-16 bg-lime-500 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-lime-600 to-lime-400"></div>
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-white opacity-10 rounded-full"></div>
+        <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-white opacity-10 rounded-full"></div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
+                <i class="fas fa-clock animate-pulse"></i>
+                Atención Inmediata
+            </div>
+            <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-6">
+                ¿Necesitas una campaña <span class="underline decoration-white/50 decoration-4">hoy mismo</span>?
+            </h2>
+            <p class="text-xl text-lime-100 mb-8 max-w-2xl mx-auto">
+                No esperes más. Nuestro equipo está listo para atenderte y cotizar tu proyecto en minutos.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/573114431948" target="_blank" class="bg-white text-lime-600 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-3">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <div class="text-left">
+                        <div class="text-xs text-lime-600/70">Escríbenos ya</div>
+                        <div>+57 314 443 1948</div>
+                    </div>
+                </a>
+                <a href="https://wa.me/573116715931" target="_blank" class="bg-lime-700 text-white border-2 border-white/30 px-8 py-4 rounded-full font-bold text-lg hover:bg-lime-800 transition-all flex items-center justify-center gap-3">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    <div class="text-left">
+                        <div class="text-xs text-lime-200">Línea alterna</div>
+                        <div>+57 311 671 5931</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 gradient-lime rounded-xl flex items-center justify-center text-white font-bold text-2xl">
+                            Z
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-bold text-2xl">Creativo<span class="text-lime-400">Z</span></h3>
+                            <p class="text-xs text-gray-400 tracking-wider">PUBLICIDAD & ESTRATEGIA</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Agencia integral de publicidad, diseño y comunicaciones. Transformamos ideas en realidades impactantes desde hace más de 10 años.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-lime-600 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-lime-600 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-lime-600 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-lime-600 transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-lime-400">Servicios</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">Diseño Publicitario</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Desarrollo de Marca</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Marketing Digital</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Desarrollo Web</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Redes Sociales</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">SEO & Google Ads</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-lime-400">Contacto</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-lime-500 mt-1"></i>
+                            <span>Colombia</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-lime-500"></i>
+                            <span>+57 314 443 1948</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-lime-500"></i>
+                            <span>+57 311 671 5931</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-lime-500"></i>
+                            <span>gerencia@creativoz.co</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-lime-400">Certificaciones</h4>
+                    <div class="flex gap-4 mb-6">
+                        <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-2xl" title="Google Partner">
+                            <i class="fab fa-google text-blue-400"></i>
+                        </div>
+                        <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-2xl" title="Meta Business Partner">
+                            <i class="fab fa-meta text-blue-500"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-xs">
+                        Agencia certificada en Google Ads y plataformas digitales líderes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    © 2024 CreativoZ Publicidad. Todos los derechos reservados.
+                </p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Política de privacidad</a>
+                    <a href="#" class="hover:text-white transition-colors">Términos de servicio</a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50 floating-whatsapp">
+        <a href="https://wa.me/573114431948" target="_blank" class="group relative flex items-center justify-center">
+            <div class="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20"></div>
+            <div class="absolute -top-12 right-0 bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg text-sm font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                ¡Cotiza al instante!
+                <div class="absolute bottom-0 right-6 transform translate-y-1/2 rotate-45 w-2 h-2 bg-white"></div>
+            </div>
+            <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl hover:scale-110 transition-transform relative">
+                <i class="fab fa-whatsapp"></i>
+                <div class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full border-2 border-white flex items-center justify-center text-xs font-bold animate-bounce">
+                    1
+                </div>
+            </div>
+        </a>
+    </div>
+
     <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
-        
-        function handleSubmit(e) {
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const nombre = document.getElementById('nombre').value;
+            // Show success message
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
             
-            alert(`✅ ¡Gracias ${nombre}! \n\nTu solicitud de agenda ha sido recibida.\n\nEn menos de 2 horas Oscar o nuestro equipo te contactará por WhatsApp para confirmar tu reunión y lanzaremos tu campaña al instante.`);
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> ¡Solicitud enviada!';
+            btn.classList.remove('gradient-lime');
+            btn.classList.add('bg-green-500');
             
-            // Reset form
-            e.target.reset();
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        // Tailwind script init
-        document.documentElement.style.setProperty('--lime', '#a3e635');
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.add('gradient-lime');
+                btn.classList.remove('bg-green-500');
+                this.reset();
+            }, 3000);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
