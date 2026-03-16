@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativoZ Publicidad | Agencia de Marketing & Estrategia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
+        :root {
+            --lime: #a3e635;
+        }
+        
+        .tail-container {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #a3e635 0%, #4ade80 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #a3e635;
+            transform: translateY(-2px);
+        }
+        
+        .whatsapp-btn {
+            animation: pulse 2s infinite;
+            box-shadow: 0 10px 30px rgba(163, 230, 53, 0.5);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .service-card {
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(163 230 53);
+        }
+        
+        .logo-z {
+            font-family: 'Playfair Display', serif;
+            color: #a3e635;
+        }
+    </style>
+</head>
+<body class="tail-container bg-gray-50 text-gray-800 overflow-x-hidden">
+    
+    <!-- HEADER -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-14 h-14 bg-lime-400 rounded-2xl flex items-center justify-center shadow-inner">
+                    <span class="logo-z text-4xl font-bold text-white drop-shadow-lg">Z</span>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tighter">
+                        <span class="text-gray-800">Creativo</span><span class="logo-z">Z</span>
+                    </h1>
+                    <p class="text-[10px] text-lime-600 -mt-1 tracking-[3px] font-medium">PUBLICIDAD</p>
+                </div>
+            </div>
+            
+            <!-- Navegación -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+                <a href="#inicio" class="nav-link text-gray-700">Inicio</a>
+                <a href="#nosotros" class="nav-link text-gray-700">Nosotros</a>
+                <a href="#servicios" class="nav-link text-gray-700">Servicios</a>
+                <a href="#contacto" class="nav-link text-gray-700">Contacto</a>
+            </nav>
+            
+            <!-- Botón WhatsApp Header -->
+            <a href="https://wa.me/573116715931?text=¡Hola!%20Quiero%20lanzar%20mi%20campaña%20AL%20INSTANTE%20con%20CreativoZ%20Publicidad" 
+               target="_blank"
+               class="whatsapp-btn flex items-center gap-3 bg-lime-500 hover:bg-lime-600 text-white font-bold text-sm px-6 py-3 rounded-3xl transition-all">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                <div>
+                    <span class="block text-xs tracking-widest">¡YA!</span>
+                    <span class="text-base">Escribe WhatsApp</span>
+                </div>
+            </a>
+            
+            <!-- Menú móvil -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-lime-600">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Menú móvil -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-xl py-4">
+            <div class="flex flex-col text-center gap-4 text-lg font-medium">
+                <a href="#inicio" onclick="toggleMobileMenu()" class="py-2 hover:text-lime-600">Inicio</a>
+                <a href="#nosotros" onclick="toggleMobileMenu()" class="py-2 hover:text-lime-600">Nosotros</a>
+                <a href="#servicios" onclick="toggleMobileMenu()" class="py-2 hover:text-lime-600">Servicios</a>
+                <a href="#contacto" onclick="toggleMobileMenu()" class="py-2 hover:text-lime-600">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero-bg text-white min-h-screen flex items-center relative">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-2 rounded-full text-sm font-medium mb-6">
+                    <i class="fas fa-fire text-yellow-300"></i>
+                    <span>¡Tu campaña lista en horas!</span>
+                </div>
+                
+                <h2 class="text-6xl md:text-7xl font-bold leading-none tracking-tighter mb-6">
+                    UNA IDEA ES<br>CREAR UN SUEÑO<br>Y PODER<br><span class="logo-z">PLASMARLO</span>
+                </h2>
+                
+                <p class="text-2xl mb-10 text-white/90">
+                    CreativoZ Publicidad &amp; Estrategia.<br>
+                    Tu agencia de confianza en Bogotá.
+                </p>
+                
+                <!-- Botón WhatsApp URGENTE -->
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="https://wa.me/573116715931?text=¡Hola!%20Quiero%20lanzar%20mi%20campaña%20AL%20INSTANTE.%20Necesito%20resultados%20YA%20%E2%9C%85" 
+                       target="_blank"
+                       class="whatsapp-btn group flex-1 bg-white text-lime-700 hover:bg-lime-100 font-bold text-2xl px-12 py-8 rounded-3xl flex items-center justify-center gap-5 shadow-2xl transition-all">
+                        <i class="fab fa-whatsapp text-5xl group-active:scale-110 transition"></i>
+                        <div class="text-left">
+                            <span class="block text-xs tracking-[4px] text-lime-600 font-medium">URGENTE</span>
+                            <span class="block text-3xl">¡Lanza tu campaña</span>
+                            <span class="block text-3xl -mt-2">AL INSTANTE!</span>
+                        </div>
+                    </a>
+                    
+                    <a href="#contacto" 
+                       class="flex-1 border-4 border-white hover:bg-white hover:text-lime-700 font-bold text-2xl px-12 py-8 rounded-3xl flex items-center justify-center gap-4 transition-all">
+                        <i class="fas fa-calendar-alt text-4xl"></i>
+                        <div>
+                            <span class="block text-xl">Agenda tu reunión</span>
+                            <span class="text-sm opacity-75">en menos de 5 minutos</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="mt-12 flex items-center gap-8 text-sm">
+                    <div class="flex -space-x-4">
+                        <div class="w-9 h-9 bg-white rounded-2xl flex items-center justify-center text-lime-600 shadow">G</div>
+                        <div class="w-9 h-9 bg-white rounded-2xl flex items-center justify-center text-lime-600 shadow">L</div>
+                    </div>
+                    <p class="text-xs max-w-[180px]">Certificados Google &amp; LinkedIn • Más de 200 campañas exitosas</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Elementos flotantes -->
+        <div class="absolute bottom-10 right-10 hidden lg:block">
+            <div class="bg-white text-lime-700 rounded-3xl p-6 shadow-2xl max-w-xs">
+                <div class="flex items-center gap-4">
+                    <img src="https://picsum.photos/id/1011/80/80" class="w-16 h-16 rounded-2xl" alt="">
+                    <div>
+                        <p class="font-bold">Oscar David Zapata Castañeda</p>
+                        <p class="text-xs text-gray-500">Consultor de Marca</p>
+                        <a href="https://wa.me/573116715931" target="_blank" class="text-lime-600 text-sm flex items-center gap-1 mt-3">
+                            <i class="fab fa-whatsapp"></i> Hablar con Oscar ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent"></div>
+    </section>
+
+    <!-- NOSOTROS / MISIÓN -->
+    <section id="nosotros" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="px-5 py-2 bg-lime-100 text-lime-700 text-xs font-bold rounded-3xl">CREATIVOZ PUBLICIDAD &amp; ESTRATEGIA</span>
+                    <h2 class="text-5xl font-bold mt-6 leading-tight">
+                        Somos la agencia que transforma ideas en resultados reales
+                    </h2>
+                    <div class="mt-10 text-gray-600 text-lg leading-relaxed">
+                        <p class="mb-6">
+                            Una de las agencias de publicidad, diseño y comunicaciones más reconocidas de Colombia. 
+                            Conformados por un equipo interdisciplinario de profesionales en publicidad, web, medios integrales, 
+                            social media y tecnología.
+                        </p>
+                        <p>
+                            Nuestro propósito: involucrar a tus consumidores y diferenciarte en el mercado mediante un plan 
+                            integral de comunicaciones que incluye estrategia, imágenes, videos, audio y mucho más.
+                        </p>
+                    </div>
+                    <div class="mt-12 flex items-center gap-6">
+                        <div class="text-center">
+                            <div class="text-5xl font-bold text-lime-500">15</div>
+                            <div class="text-xs text-gray-500 tracking-widest">AÑOS DE EXPERIENCIA</div>
+                        </div>
+                        <div class="h-12 w-px bg-gray-200"></div>
+                        <div>
+                            <i class="fas fa-quote-left text-6xl text-lime-300"></i>
+                            <p class="italic text-lg mt-4">"Una idea es crear un sueño y poder plasmarlo en la realidad"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://picsum.photos/id/1016/800/900" 
+                         class="rounded-3xl shadow-2xl" alt="Equipo CreativoZ">
+                    <div class="absolute -bottom-8 -left-8 bg-white rounded-3xl p-8 shadow-xl max-w-[260px]">
+                        <div class="flex gap-4">
+                            <div class="text-6xl text-lime-500">📍</div>
+                            <div>
+                                <p class="font-semibold text-xl">Bogotá D.C.</p>
+                                <p class="text-lime-600">Colombia</p>
+                                <a href="#" class="block mt-4 text-sm bg-lime-100 hover:bg-lime-200 px-6 py-3 rounded-2xl text-center font-medium">Conócenos en persona</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-lime-600 font-bold text-sm tracking-widest">SERVICIOS PROFESIONALES</span>
+                <h2 class="text-5xl font-bold mt-3">Todo lo que tu marca necesita</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tarjetas de servicios (tomadas directamente del folleto) -->
+                <div class="service-card bg-white rounded-3xl p-8 shadow">
+                    <i class="fas fa-palette text-4xl text-lime-500 mb-6"></i>
+                    <h3 class="font-bold text-2xl mb-3">Diseño publicitario</h3>
+                    <p class="text-gray-600">Creatividad que vende y conecta con tu audiencia.</p>
+                </div>
+                <div class="service-card bg-white rounded-3xl p-8 shadow">
+                    <i class="fas fa-bullseye text-4xl text-lime-500 mb-6"></i>
+                    <h3 class="font-bold text-2xl mb-3">Desarrollo de marca</h3>
+                    <p class="text-gray-600">Construimos identidad que perdura.</p>
+                </div>
+                <div class="service-card bg-white rounded-3xl p-8 shadow">
+                    <i class="fas fa-camera text-4xl text-lime-500 mb-6"></i>
+                    <h3 class="font-bold text-2xl mb-3">Fotografía profesional</h3>
+                    <p class="text-gray-600">Imágenes que cuentan tu historia.</p>
+                </div>
+                
+                <div class="service-card bg-white rounded-3xl p-8 shadow">
+                    <i class="fas fa-globe text-4xl text-lime-500 mb-6"></i>
+                    <h3 class="font-bold text-2xl mb-3">Desarrollo web y App</h3>
+                    <p class="text-gray-600">Sitios y aplicaciones que convierten.</p>
+                </div>
+                <div class="service-card bg-white rounded-3xl p-8 shadow">
+                    <i class="fas fa-chart-line text-4xl text-lime-500 mb-6"></i>
+                    <h3 class="font-bold text-2xl mb-3">Posicionamiento SEO + Google Ads</h3>
+                    <p class="text-gray-600">Primero en Google, siempre.</p>
+                </div>
+                <div class="service-card bg-white rounded-3xl p-8 shadow">
+                    <i class="fas fa-users text-4xl text-lime-500 mb-6"></i>
+                    <h3 class="font-bold text-2xl mb-3">Social Media &amp; Community</h3>
+                    <p class="text-gray-600">Gestión completa de redes sociales.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://wa.me/573116715931?text=Quiero%20cotizar%20mis%20servicios%20de%20CreativoZ" 
+                   target="_blank"
+                   class="inline-flex items-center gap-4 bg-lime-500 hover:bg-lime-600 text-white text-xl font-bold px-14 py-6 rounded-3xl">
+                    Ver todos los servicios 
+                    <span class="text-4xl">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICACIONES -->
+    <section class="py-20 bg-white border-t border-b">
+        <div class="max-w-5xl mx-auto px-6">
+            <p class="text-center text-sm text-gray-400 mb-8">CERTIFICACIONES Y PARTNERS</p>
+            <div class="flex flex-wrap justify-center gap-12 text-5xl text-gray-300">
+                <i class="fab fa-google text-lime-500"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fas fa-chart-bar"></i>
+                <span class="text-3xl font-bold text-lime-400">Meta Ads</span>
+                <span class="text-3xl font-bold text-lime-400">Canva Pro</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO AGENDACIÓN (CAPTURA DE DATOS) -->
+    <section id="contacto" class="py-24 bg-gradient-to-br from-lime-600 to-emerald-600 text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold">Agenda tu estrategia GRATIS</h2>
+                <p class="text-xl mt-4 opacity-90">En 48 horas tendrás tu plan de campaña listo</p>
+            </div>
+            
+            <form id="agendaForm" onsubmit="handleSubmit(event)" class="bg-white text-gray-800 rounded-3xl p-10 shadow-2xl">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-2">Nombre completo</label>
+                        <input type="text" id="nombre" required 
+                               class="w-full border-2 border-gray-200 focus:border-lime-400 rounded-2xl px-6 py-5 text-lg">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-2">Teléfono / WhatsApp</label>
+                        <input type="tel" id="telefono" required 
+                               class="w-full border-2 border-gray-200 focus:border-lime-400 rounded-2xl px-6 py-5 text-lg">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-2">Email</label>
+                        <input type="email" id="email" required 
+                               class="w-full border-2 border-gray-200 focus:border-lime-400 rounded-2xl px-6 py-5 text-lg">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-500 mb-2">Servicio que necesitas</label>
+                        <select id="servicio" required 
+                                class="w-full border-2 border-gray-200 focus:border-lime-400 rounded-2xl px-6 py-5 text-lg bg-white">
+                            <option value="">Elige una opción</option>
+                            <option value="Campaña Google Ads">Campaña Google Ads</option>
+                            <option value="Diseño Web + SEO">Diseño Web + SEO</option>
+                            <option value="Redes Sociales">Gestión de Redes Sociales</option>
+                            <option value="Desarrollo de Marca">Desarrollo de Marca</option>
+                            <option value="Fotografía y Video">Fotografía y Video</option>
+                            <option value="Otro">Otro servicio</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <label class="block text-xs font-medium text-gray-500 mb-2">¿Cuándo quieres lanzar tu campaña?</label>
+                    <textarea id="mensaje" rows="4" placeholder="Ej: Quiero resultados antes del 30 de abril..." 
+                              class="w-full border-2 border-gray-200 focus:border-lime-400 rounded-3xl px-6 py-5 text-lg"></textarea>
+                </div>
+                
+                <button type="submit"
+                        class="mt-8 w-full bg-lime-500 hover:bg-lime-600 text-white font-bold text-2xl py-8 rounded-3xl flex items-center justify-center gap-4 transition-all">
+                    <span>RESERVAR MI REUNIÓN YA</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                
+                <p class="text-center text-xs text-gray-400 mt-6">Tu información está 100% protegida • Respuesta en menos de 2 horas</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+            <div>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-lime-400 rounded-2xl flex items-center justify-center">
+                        <span class="logo-z text-5xl text-white">Z</span>
+                    </div>
+                    <div class="text-3xl font-bold">CreativoZ</div>
+                </div>
+                <p class="text-gray-400 mt-6 text-sm">Publicidad &amp; Estrategia • Bogotá D.C.</p>
+                <div class="mt-8 flex gap-6 text-3xl">
+                    <a href="https://wa.me/573116715931" class="hover:text-lime-400"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="hover:text-lime-400"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-lime-400"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-6 text-lime-400">CONTACTO DIRECTO</h4>
+                <div class="space-y-4 text-sm">
+                    <p>📞 311 671 5931</p>
+                    <p>📞 314 443 1948</p>
+                    <p>✉️ gerencia@creativoz.co</p>
+                    <p>🌐 www.creativoz.co</p>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-semibold mb-6 text-lime-400">¡ÚLTIMA OPORTUNIDAD!</h4>
+                <a href="https://wa.me/573116715931?text=¡Quiero%20mi%20diagnóstico%20GRATIS%20de%20marca%20AHORA!" 
+                   target="_blank"
+                   class="block bg-lime-400 hover:bg-white hover:text-lime-700 text-gray-900 font-bold text-center py-8 rounded-3xl text-xl transition-all">
+                    ESCRÍBENOS POR WHATSAPP<br>
+                    <span class="text-xs tracking-widest">y recibe diagnóstico gratis en 24h</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="text-center text-xs text-gray-500 mt-16">
+            © 2026 CreativoZ Publicidad • Todos los derechos reservados
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            
+            alert(`✅ ¡Gracias ${nombre}! \n\nTu solicitud de agenda ha sido recibida.\n\nEn menos de 2 horas Oscar o nuestro equipo te contactará por WhatsApp para confirmar tu reunión y lanzaremos tu campaña al instante.`);
+            
+            // Reset form
+            e.target.reset();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Tailwind script init
+        document.documentElement.style.setProperty('--lime', '#a3e635');
+    </script>
+</body>
+</html>
